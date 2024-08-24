@@ -69,7 +69,7 @@ export const SignupModule: FC = (): ReactElement => {
       form.reset();
     } catch (error) {
       toast.error("Error occured when creating account", {
-        description: `${error}`,
+        description: `User already exist`,
       });
     }
   };
