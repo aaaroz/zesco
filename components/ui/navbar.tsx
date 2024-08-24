@@ -4,10 +4,18 @@ import { Code2Icon } from "lucide-react";
 import Link from "next/link";
 import { FC, ReactElement, useEffect, useState } from "react";
 import { Button } from "./button";
-import { GithubOutlined } from "@ant-design/icons";
-import { ModeToggle } from "./mode-toggle";
+import { GithubOutlined, MenuOutlined } from "@ant-design/icons";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./sheet";
+import { UserButton } from "./user-button";
 
-const links = ["Products", "Learn", "Community", "Company", "About us"];
+const links = ["Home", "Learn", "Community", "Company", "About us"];
 
 export const Navbar: FC = (): ReactElement => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,29 +48,79 @@ export const Navbar: FC = (): ReactElement => {
           Zesco
         </h1>
       </Link>
-      <nav className="space-x-8">
+      <nav className="hidden md:block md:space-x-3 lg:space-x-8">
         {links.map((link, index) => (
           <Link
             href="#"
             key={index}
             className={cn(
-              "text-muted-foreground",
-              link === "Products" && "text-primary font-semibold"
+              "text-muted-foreground hover:text-primary transition-colors duration-200",
+              link === "Home" && "text-primary font-semibold"
             )}
           >
             {link}
           </Link>
         ))}
       </nav>
-      <div className="flex gap-1 items-center">
+
+      <div className="hidden md:flex gap-1 items-center">
         <Button size="icon" variant="ghost" asChild>
-          <Link href="https://github.com/aaaroz">
+          <Link href="https://github.com/aaaroz" target="_blank">
             <GithubOutlined className="text-xl" />
           </Link>
         </Button>
-        <Button variant="ghost">Login</Button>
-        <Button variant="secondary">Sign Up</Button>
+        <UserButton />
       </div>
+      <nav className="block md:hidden">
+        <Sheet>
+          <SheetTrigger>
+            <Button size="icon" variant="ghost" asChild>
+              <MenuOutlined />
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle className="mb-10">
+                <Link href="/" className="flex justify-center items-center">
+                  <h1 className="text-xl font-mono flex gap-2 items-center">
+                    <Code2Icon className="size-7 shrink-0" />
+                    Zesco
+                  </h1>
+                </Link>
+              </SheetTitle>
+              <SheetDescription>
+                <div className="flex items-center gap-2 justify-center">
+                  <Button size="icon" variant="ghost" asChild>
+                    <Link href="https://github.com/aaaroz">
+                      <GithubOutlined className="text-xl" />
+                    </Link>
+                  </Button>
+                  <UserButton />
+                </div>
+                <nav className="flex flex-col gap-3 mt-10">
+                  {links.map((link, index) => (
+                    <Button
+                      key={index}
+                      asChild
+                      variant={link === "Products" ? "default" : "secondary"}
+                    >
+                      <Link
+                        href="#"
+                        className={cn(
+                          "text-muted-foreground",
+                          link === "Products" && "text-primary font-semibold"
+                        )}
+                      >
+                        {link}
+                      </Link>
+                    </Button>
+                  ))}
+                </nav>
+              </SheetDescription>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </nav>
     </header>
   );
 };

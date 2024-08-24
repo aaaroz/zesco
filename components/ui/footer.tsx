@@ -19,7 +19,7 @@ const medsosLinks = [
   },
   {
     icon: <WhatsAppOutlined />,
-    href: "https://facebook.com/rmdnmar",
+    href: "https://wa.me/081213294383",
     name: "whatsapp",
   },
   {
@@ -29,14 +29,14 @@ const medsosLinks = [
   },
   {
     icon: <TikTokOutlined />,
-    href: "https://tiktok.com/zorraken",
+    href: "https://tiktok.com/@zorraboy",
     name: "tiktok",
   },
 ];
 export const Footer: FC = (): ReactElement => {
   return (
-    <footer className="container bg-muted pt-16 pb-10 space-y-8">
-      <div className="flex justify-between gap-20">
+    <footer className="bg-muted pt-16 pb-10 space-y-8">
+      <div className="container flex flex-col lg:flex-row justify-between gap-20 mb-20">
         <div className="max-w-sm">
           <div className="flex flex-col justify-between">
             <div className="space-y-5">
@@ -54,7 +54,7 @@ export const Footer: FC = (): ReactElement => {
             </div>
           </div>
         </div>
-        <div className="w-full grid grid-cols-4 gap-5">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-5">
           <div className="space-y-4 w-full text-left">
             <h1 className="text-primary-foreground text-lg font-semibold">
               Products
@@ -64,7 +64,7 @@ export const Footer: FC = (): ReactElement => {
                 <Link
                   href="#"
                   key={index}
-                  className="text-muted-foreground capitalize"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 capitalize"
                 >
                   {link}
                 </Link>
@@ -80,7 +80,7 @@ export const Footer: FC = (): ReactElement => {
                 <Link
                   href="#"
                   key={index}
-                  className="text-muted-foreground capitalize"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 capitalize"
                 >
                   {link}
                 </Link>
@@ -96,7 +96,7 @@ export const Footer: FC = (): ReactElement => {
                 <Link
                   href="#"
                   key={index}
-                  className="text-muted-foreground capitalize"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 capitalize"
                 >
                   {link}
                 </Link>
@@ -112,7 +112,8 @@ export const Footer: FC = (): ReactElement => {
                 <Link
                   href={link.href}
                   key={index}
-                  className="text-muted-foreground capitalize flex items-center gap-1"
+                  target="_blank"
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 capitalize flex items-center gap-1"
                 >
                   {link.icon}
                   {link.name}
@@ -122,7 +123,9 @@ export const Footer: FC = (): ReactElement => {
           </div>
         </div>
       </div>
-      <p>&copy; 2024 Development Tools Hub. All rights reserved.</p>
+      <p className="text-center mt-8 text-sm">
+        &copy; 2024 Development Tools Hub. All rights reserved.
+      </p>
     </footer>
   );
 };

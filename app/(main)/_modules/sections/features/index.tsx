@@ -45,10 +45,12 @@ const features = [
 export const FeaturesSection: FC = (): ReactElement => {
   return (
     <section className="relative z-20 py-10 lg:py-32 max-w-7xl mx-auto">
-      <div className="px-8">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+      <div className="px-8 space-y-5 md:space-y-10">
+        <h4 className="text-2xl md:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
           Packed with thousands of{" "}
-          <span className="bg-primary py-1.5 px-2 rounded-lg">features</span>
+          <span className="bg-primary py-0.5 md:py-1.5 px-2 rounded-lg">
+            features
+          </span>
         </h4>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
@@ -58,7 +60,7 @@ export const FeaturesSection: FC = (): ReactElement => {
       </div>
 
       <div className="relative">
-        <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
+        <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 border rounded-md dark:border-neutral-800">
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>
               <FeatureTitle>{feature.title}</FeatureTitle>

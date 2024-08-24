@@ -3,25 +3,28 @@ import { LampContainer } from "@/components/ui/lamp";
 import { FC, ReactElement } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export const HeroSection: FC = (): ReactElement => {
   return (
-    <div className="mt-32">
+    <div className="mt-16 md:mt-32">
       <LampContainer
         header={
-          <div className="inline-flex flex-col items-center gap-8 z-10 px-40">
-            <h1 className="text-4xl bg-gradient-to-br from-slate-100 via-slate-200 to-slate-500 bg-clip-text text-center font-medium tracking-tight text-transparent md:text-6xl">
+          <div className="inline-flex flex-col items-center gap-8 z-10 sm:px-10 md:px-20 lg:px-40">
+            <h1 className="text-4xl bg-gradient-to-br from-slate-100 via-slate-200 to-slate-500 bg-clip-text text-center font-medium tracking-tight text-transparent md:text-5xl lg:text-6xl">
               Discover Your One-Stop Destination for Cutting-Edge Development
               Tools
             </h1>
-            <p className="text-muted-foreground text-lg text-center px-20">
+            <p className="text-muted-foreground text-sm md:text-lg text-center md:px-8 lg:px-20">
               Explore the latest tools, tutorials, and resources to enhance your
               development skills and streamline your workflow. Whether
               you&apos;re a beginner or an experienced developer, you&apos;ll
               find something valuable here.
             </p>
             <div className="flex gap-1">
-              <Button className="w-fit">Get Started</Button>
+              <Button className="w-fit" asChild>
+                <Link href="/auth/login">Get Started</Link>
+              </Button>
               <Button variant="link" className="text-white">
                 Discover more
               </Button>

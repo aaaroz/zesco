@@ -16,7 +16,7 @@ export const CompanySection: FC = (): ReactElement => {
   }, [isMounted]);
   return (
     <section className="w-full flex flex-col gap-5 justify-center items-center mb-20">
-      <div className="flex flex-col px-40">
+      <div className="flex flex-col px-10 md:px-20 lg:px-40">
         <h3 className="text-primary-foreground text-center md:text-lg">
           Powering the world best product teams.
         </h3>
