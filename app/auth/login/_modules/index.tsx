@@ -59,7 +59,7 @@ export const LoginModule: FC = (): ReactElement => {
       });
     } catch (error) {
       console.error(error);
-      toast("Login Invalid", { description: `${error}` });
+      toast("Login Invalid", { description: "Credential is not valid!" });
     }
   };
 
